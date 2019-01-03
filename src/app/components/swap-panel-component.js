@@ -5,8 +5,6 @@ const remixLib = require('remix-lib')
 const styleguide = require('../ui/styles-guide/theme-chooser')
 const styles = styleguide.chooser()
 
-const EventManager = remixLib.EventManager
-
 class SwapPanelComponent {
   constructor () {
   }
@@ -15,14 +13,14 @@ class SwapPanelComponent {
     // hiding the current view and display the `moduleName`
   }
 
-  addView (title, content) {
+  /*
+  addView (moduleName, content) {
     // add the DOM to the swappanel
   }
+  */
 
   render () {
-    var self = this
-
-    var view = yo`
+    this.view = yo`
       <div id='plugins' class=${css.plugins} >
         <div class=${css.plugItIn} >
             <h1> Plugin 1 </h1>

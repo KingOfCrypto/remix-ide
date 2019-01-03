@@ -8,7 +8,10 @@ const styles = styleguide.chooser()
 const EventManager = remixLib.EventManager
 
 class PluginManagerComponent {
+
   constructor () {
+    this.modules = []
+    this.plugins = []
   }
 
   render () {
@@ -20,11 +23,6 @@ class PluginManagerComponent {
     `
   }
 
-  addItem (item) {
-    // add to appManager and then render
-    renderItem(item)
-  }
-
   _activate(item) {
     this.event.emit('activation', item)
   }
@@ -34,8 +32,8 @@ class PluginManagerComponent {
   }
 
   renderItem (item) {
+    this.plugins.push(item)
     var self = this
-
     var view = yo`
       <div id='pluginManager' class=${css.plugin} >
         ${item.name}
@@ -47,7 +45,7 @@ class PluginManagerComponent {
   }
 }
 
-module.exports = SwapPanelComponent
+module.exports = PluginManagerComponent
 
 const css = csjs`
   .plugins        {
